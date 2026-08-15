@@ -81,12 +81,18 @@ def run_paddleocr(image: str, version: str) -> dict:
     """PaddleOCR-VL pipeline: layout analysis (local Paddle) + VLM (llama.cpp)."""
     from paddleocr import PaddleOCRVL
 
+    # Model name the llama-server knows it by. A server started with
+    # --alias PaddleOCR-VL-1.6 answers that name; a server started with the
+    # bare GGUF path answers the filename. Override via env when your server
+    # uses a different alias.
+    model_name = os.environ.get("OCR_LLAMA_MODEL", "PaddleOCR-VL-1.6")
+
     pipeline = PaddleOCRVL(
         pipeline_version=version,
         device="gpu",
         vl_rec_backend="llama-cpp-server",
         vl_rec_server_url=LLAMA_SERVER_URL,
-        vl_rec_api_model_name="PaddleOCR-VL-1.6",
+        vl_rec_api_model_name=model_name,
     )
     results = pipeline.predict(image)
     for res in results:
@@ -107,7 +113,14 @@ def run_tesseract(image: str, language: str = "chi_sim+eng", psm: int = 3) -> di
         capture_output=True, text=True, timeout=120,
     )
     if proc.returncode != 0:
-        raise RuntimeError(f"tesseract failed: {proc.stderr}")
+        err = proc.stderr
+        if "GLIBC_" in err and "not found" in err:
+            raise RuntimeError(
+                "tesseract binary is broken (glibc mismatch). "
+                "If it comes from homebrew/linuxbrew, install a system build instead: "
+                "sudo apt install tesseract-ocr tesseract-ocr-chi-sim"
+            )
+        raise RuntimeError(f"tesseract failed: {err}")
     return {"text": proc.stdout, "engine": "tesseract", "version": "local"}
 
 

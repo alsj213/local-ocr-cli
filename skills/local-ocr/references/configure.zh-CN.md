@@ -44,10 +44,25 @@ export OCR_LLAMA_URL=http://127.0.0.1:8091/v1
 ### tesseract（回退）
 
 ```bash
-apt install tesseract-ocr tesseract-ocr-chi-sim
+sudo apt install tesseract-ocr tesseract-ocr-chi-sim
 ```
+
+**免 sudo 安装**（无法 `apt install` 时）：下载 deb 包解压到用户目录。不同 Ubuntu 版本包名不同——jammy (22.04) 上是 `liblept5` 和 `libtesseract4`。用 `apt-cache search tesseract` / `apt-cache search liblept` 查真实包名，缺什么库（如 `libgif7`）运行时补什么：
+
+```bash
+mkdir -p /tmp/ocr_tess && cd /tmp/ocr_tess
+apt-get download tesseract-ocr tesseract-ocr-chi-sim liblept5 libtesseract4 libgif7
+mkdir root && for d in *.deb; do dpkg -x "$d" root; done
+export PATH=/tmp/ocr_tess/root/usr/bin:$PATH
+export LD_LIBRARY_PATH=/tmp/ocr_tess/root/usr/lib/x86_64-linux-gnu
+export TESSDATA_PREFIX=/tmp/ocr_tess/root/usr/share/tesseract-ocr/4.00/tessdata
+```
+
+> 为什么：homebrew/linuxbrew 的 tesseract 针对更新的 glibc 编译，在 Ubuntu 22.04 (glibc 2.35) 上会报 `GLIBC_2.38 not found`。`local-ocr doctor` 能检测到并提示。
 
 ## 说明
 
-- 引擎会始终绕过本地 llama.cpp 服务的代理（自动设置 NO_PROXY），因此系统 `http_proxy` 不会破坏本地 VLM 读取。
+- 引擎会始终绕过本地 llama.cpp 服务的代理（自动设置 NO_PROXY），因此系统 `http_proxy` 不会破坏本地 VLM 读取。自己用 curl 探测服务时请加 `--noproxy '*'`。
+- 端口 8091 上只应有一个 llama-server——如果已有实例在跑（可能来自其他 profile），直接复用，不要重复启动。如果它的模型别名不是 `PaddleOCR-VL-1.6`，设置 `OCR_LLAMA_MODEL` 为它应答的名字，或用 `--alias PaddleOCR-VL-1.6` 重启。
 - 6GB 显存机器：完整 PaddleOCR-VL 流程无法直接在 6GB 上运行；请使用上面的 llama.cpp 混合模式（版面分析用飞桨 GPU，VLM 用量化 GGUF 走 llama.cpp），可舒适运行。
+- 首次运行下载约 2GB PaddleOCR 模型（PP-DocLayoutV3 等）到 `~/.paddlex/`，之后很快。注意沙箱 profile 里 `~` 可能被重定向，脚本里用绝对路径最稳。

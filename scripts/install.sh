@@ -95,6 +95,14 @@ fi
 if [[ -x "$PYTHON_BIN" ]] && "$PYTHON_BIN" -c "import paddleocr" >/dev/null 2>&1; then
   info "venv already has paddleocr, reusing $VENV_DIR"
 else
+  if [[ -d "$VENV_DIR" ]]; then
+    # Leftover from an interrupted install: rebuild in place instead of
+    # failing on "virtual environment already exists" (uv refuses to overwrite).
+    info "existing venv found without paddleocr — rebuilding $VENV_DIR"
+    if command -v uv >/dev/null 2>&1; then
+      rm -rf "$VENV_DIR"
+    fi
+  fi
   info "creating venv at $VENV_DIR"
   if command -v uv >/dev/null 2>&1; then
     uv venv --python 3.10 "$VENV_DIR" >/dev/null
@@ -136,7 +144,9 @@ if [[ "$SKIP_SERVER" -eq 1 ]]; then
   info "skipping llama-server start (--skip-server) — start it later with:"
   echo "    $0                       # rerun; venv/models are reused, server starts"
 elif curl -s --noproxy '*' --max-time 2 "$LLAMA_URL/models" >/dev/null 2>&1; then
-  info "llama-server already running at $LLAMA_URL"
+  info "llama-server already running at $LLAMA_URL — reusing it (do not start a second one)"
+  warn "if its model alias is not 'PaddleOCR-VL-1.6', start with:"
+  warn "    --alias PaddleOCR-VL-1.6   (engine requests that model name)"
 else
   if [[ ! -x "$LLAMA_SERVER" ]]; then
     info "downloading llama.cpp ${LLAMA_VER} (CPU build)"
@@ -150,6 +160,7 @@ else
   nohup "$LLAMA_SERVER" \
     -m "$MODELS_DIR/$GGUF_Q4" \
     --mmproj "$MODELS_DIR/$GGUF_MMPROJ" \
+    --alias "PaddleOCR-VL-1.6" \
     --port "$LLAMA_PORT" --host 127.0.0.1 -c 4096 \
     >"$ROOT_DIR/llama-server.log" 2>&1 &
   # wait for readiness
@@ -162,6 +173,7 @@ else
   done
   if ! curl -s --noproxy '*' --max-time 2 "$LLAMA_URL/models" >/dev/null 2>&1; then
     warn "llama-server did not become ready — check $ROOT_DIR/llama-server.log"
+    warn "if port $LLAMA_PORT is taken by another process, reuse it instead (see above)"
   fi
 fi
 

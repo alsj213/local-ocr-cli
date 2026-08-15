@@ -8,7 +8,7 @@
  *
  * Subcommands: analyze (default), doctor, engine-path.
  */
-import { spawn } from 'node:child_process'
+import { execFileSync, spawn } from 'node:child_process'
 import { existsSync, readFileSync, statSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join, resolve } from 'node:path'
@@ -166,13 +166,46 @@ export function doctor(): string {
   lines.push('Engine')
   lines.push(`  ${ENGINE_PATH} ${existsSync(ENGINE_PATH) ? '[ok]' : '[missing]'}`)
   lines.push('')
-  lines.push('Engines available (best-effort probe)')
-  lines.push('  paddleocr: requires Python venv with paddlepaddle-gpu>=3.2.1 + paddleocr>=3.7.0')
-  lines.push('  tesseract:  requires tesseract binary on PATH')
+  lines.push('PaddleOCR-VL backend')
+  const serverUrl = process.env.OCR_LLAMA_URL ?? 'http://127.0.0.1:8091/v1'
+  lines.push(`  llama-server ${serverUrl} — see notes below`)
+  lines.push('')
+  lines.push('tesseract (fallback)')
+  const tessBin = process.env.LOCAL_OCR_TESSERACT ?? 'tesseract'
+  lines.push(`  binary: ${tessBin}`)
+  const glibcCheck = runGlibcProbe(tessBin)
+  lines.push(`  glibc check: ${glibcCheck}`)
+  lines.push('')
+  lines.push('Proxy (local server must bypass it)')
+  const httpProxy = process.env.http_proxy ?? process.env.HTTP_PROXY ?? ''
+  const noProxy = process.env.no_proxy ?? process.env.NO_PROXY ?? ''
+  const localBypassed = /127\.0\.0\.1|localhost|127\.\*/.test(noProxy)
+  lines.push(`  http_proxy: ${httpProxy ? 'set' : 'none'} | no_proxy covers localhost: ${localBypassed ? 'yes' : 'NO'}`)
+  if (httpProxy && !localBypassed) {
+    lines.push('  ⚠️ no_proxy does not cover 127.0.0.1 — llama-server calls may be proxied (502).')
+  }
   lines.push('')
   lines.push('Save dir')
   lines.push(`  ${process.env.LOCAL_OCR_SAVE_DIR ?? 'ocr_output/'} (set LOCAL_OCR_SAVE_DIR to change)`)
   return lines.join('\n')
+}
+
+/** Probe whether the tesseract binary loads its libs (glibc mismatch check). */
+function runGlibcProbe(tessBin: string): string {
+  try {
+    execFileSync(tessBin, ['--version'], { stdio: 'pipe', timeout: 10_000 })
+    return '[ok]'
+  } catch (err) {
+    const msg = (err as { stderr?: Buffer; message?: string }).stderr?.toString()
+      ?? (err as { message?: string }).message ?? ''
+    if (/GLIBC_\d+\.\d+/.test(msg) && /not found/i.test(msg)) {
+      return '[BROKEN: glibc mismatch — use a system tesseract, not linuxbrew]'
+    }
+    if (err && (err as { code?: string }).code === 'ENOENT') {
+      return '[not found on PATH]'
+    }
+    return `[probe failed: ${msg.slice(0, 60)}]`
+  }
 }
 
 const program = new Command()
