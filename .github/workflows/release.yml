@@ -46,8 +46,16 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Debug OIDC env
+        run: |
+          echo "ACTIONS_ID_TOKEN_REQUEST_URL set: $([ -n "$ACTIONS_ID_TOKEN_REQUEST_URL" ] && echo yes || echo no)"
+          echo "ACTIONS_ID_TOKEN_REQUEST_TOKEN set: $([ -n "$ACTIONS_ID_TOKEN_REQUEST_TOKEN" ] && echo yes || echo no)"
+          echo "NPM_ID_TOKEN set: $([ -n "$NPM_ID_TOKEN" ] && echo yes || echo no)"
+          echo "NODE_AUTH_TOKEN set: $([ -n "$NODE_AUTH_TOKEN" ] && echo yes || echo no)"
+          echo "registry-url in npmrc:"; cat ~/.npmrc 2>/dev/null || echo "  (no user npmrc)"
+
       - name: Publish to npm (OIDC trusted publishing)
         # No NPM_TOKEN needed: npm authenticates via the OIDC id-token minted
         # by GitHub Actions (permissions.id-token: write above). Provenance
         # is generated automatically.
-        run: npm publish --provenance --access public
+        run: npm publish --provenance --access public --loglevel verbose
