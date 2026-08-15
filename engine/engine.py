@@ -17,9 +17,13 @@ import sys
 from pathlib import Path
 
 # llama.cpp server is a local service — never route it through a proxy.
-# Force (not setdefault): a parent env may carry http_proxy + a no_proxy that
-# httpx does not apply to 127.0.0.1; overriding both guarantees the VLM call
-# stays on localhost.
+# Setting NO_PROXY is NOT enough: paddlex's openai client (httpx) ignores the
+# `127.*` rule and still sends localhost requests to the system proxy, which
+# returns 502. The reliable fix is to REMOVE the proxy env vars entirely
+# (equivalent to `env -u http_proxy ...`), so no HTTP client can pick them up.
+for _var in ("http_proxy", "https_proxy", "HTTP_PROXY", "HTTPS_PROXY",
+             "ALL_PROXY", "all_proxy"):
+    os.environ.pop(_var, None)
 os.environ["NO_PROXY"] = "127.0.0.1,localhost"
 os.environ["no_proxy"] = "127.0.0.1,localhost"
 

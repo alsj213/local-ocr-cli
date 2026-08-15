@@ -26,6 +26,13 @@ VENV_DIR="${LOCAL_OCR_VENV:-$ROOT_DIR/.venv}"
 MODELS_DIR="${LOCAL_OCR_MODELS:-$ROOT_DIR/gguf-models}"
 LLAMA_PORT="${LLAMA_PORT:-8091}"
 LLAMA_URL="${OCR_LLAMA_URL:-http://127.0.0.1:${LLAMA_PORT}/v1}"
+# Context window for the VLM. Large images are tiled by mmproj and can exceed
+# 4096 tokens -> server 502s. 16384 fits dense screenshots/documents.
+LLAMA_CTX="${LLAMA_CTX:-16384}"
+# GPU layers offloaded (-ngl). 0 = CPU only; 99 = all layers on GPU. The CPU
+# build shipped by default runs at ~1 token/s-ish per image (30-90s each);
+# a CUDA build (--cuda) with -ngl 99 does it in 0.5-3s per image.
+LLAMA_NGL="${LLAMA_NGL:-0}"
 
 # GGUF artifacts (quantized VLM). Version-locked to what the engine expects.
 GGUF_BASE="https://huggingface.co/SanjeevSOLANKI/PaddleOCR-VL-1.6-GGUF/resolve/main"
@@ -51,12 +58,16 @@ warn()  { printf '\033[1;33m  !! %s\033[0m\n' "$*"; }
 need() { command -v "$1" >/dev/null 2>&1 || { echo "missing required tool: $1" >&2; exit 1; }; }
 
 # --- args ---------------------------------------------------------------------
+USE_CUDA=0
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --skip-models) SKIP_MODELS=1; shift ;;
     --skip-server) SKIP_SERVER=1; shift ;;
+    --cuda) USE_CUDA=1; shift ;;
     -h|--help)
-      echo "usage: $0 [--skip-models] [--skip-server]"; exit 0 ;;
+      echo "usage: $0 [--skip-models] [--skip-server] [--cuda]"
+      echo "  --cuda   build llama.cpp with CUDA (needs nvcc; much faster VLM)"
+      exit 0 ;;
     *) echo "unknown arg: $1" >&2; exit 1 ;;
   esac
 done
@@ -148,7 +159,25 @@ elif curl -s --noproxy '*' --max-time 2 "$LLAMA_URL/models" >/dev/null 2>&1; the
   warn "if its model alias is not 'PaddleOCR-VL-1.6', start with:"
   warn "    --alias PaddleOCR-VL-1.6   (engine requests that model name)"
 else
-  if [[ ! -x "$LLAMA_SERVER" ]]; then
+  if [[ "$USE_CUDA" -eq 1 && ! -x "$LLAMA_SERVER" ]]; then
+    # CUDA build: compile from source (needs nvcc + cmake). Much faster VLM
+    # than the CPU build — ~0.5-3s per image instead of 30-90s.
+    info "building llama.cpp ${LLAMA_VER} with CUDA (--cuda)"
+    need cmake
+    command -v nvcc >/dev/null 2>&1 || { echo "nvcc not found — install CUDA toolkit" >&2; exit 1; }
+    LLAMA_SRC="$ROOT_DIR/llama.cpp-src"
+    if [[ ! -d "$LLAMA_SRC" ]]; then
+      git clone --depth 1 --branch "$LLAMA_VER" \
+        https://github.com/ggml-org/llama.cpp.git "$LLAMA_SRC"
+    fi
+    mkdir -p "$LLAMA_DIR"
+    cmake -S "$LLAMA_SRC" -B "$LLAMA_DIR" -DGGML_CUDA=ON \
+      -DCMAKE_BUILD_TYPE=Release -DCMAKE_CUDA_ARCHITECTURES=86 >/dev/null
+    cmake --build "$LLAMA_DIR" --target llama-server -j"$(nproc)" >/dev/null
+    ok "llama.cpp CUDA build installed"
+    # Default to all layers on GPU for the CUDA build.
+    LLAMA_NGL="${LLAMA_NGL:-99}"
+  elif [[ ! -x "$LLAMA_SERVER" ]]; then
     info "downloading llama.cpp ${LLAMA_VER} (CPU build)"
     mkdir -p "$LLAMA_DIR"
     curl -L --retry 3 -o "/tmp/$LLAMA_TGZ" "$LLAMA_URL_BASE/$LLAMA_TGZ"
@@ -156,12 +185,13 @@ else
     ok "llama.cpp binaries installed"
   fi
 
-  info "starting llama-server on 127.0.0.1:$LLAMA_PORT"
+  info "starting llama-server on 127.0.0.1:$LLAMA_PORT (ctx=$LLAMA_CTX, ngl=$LLAMA_NGL)"
   nohup "$LLAMA_SERVER" \
     -m "$MODELS_DIR/$GGUF_Q4" \
     --mmproj "$MODELS_DIR/$GGUF_MMPROJ" \
     --alias "PaddleOCR-VL-1.6" \
-    --port "$LLAMA_PORT" --host 127.0.0.1 -c 4096 \
+    --port "$LLAMA_PORT" --host 127.0.0.1 \
+    -c "$LLAMA_CTX" -ngl "$LLAMA_NGL" \
     >"$ROOT_DIR/llama-server.log" 2>&1 &
   # wait for readiness
   for _ in $(seq 1 30); do

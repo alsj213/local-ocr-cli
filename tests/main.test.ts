@@ -18,7 +18,9 @@ describe('doctor', () => {
     expect(out).toContain('local-ocr doctor')
     expect(out).toContain('Python')
     expect(out).toContain('Engine')
-  })
+    // python probe line present (may be ok or a probe-failed marker)
+    expect(out).toMatch(/3\.\d+\.\d+ \| paddleocr|NO paddleocr|probe failed|python3/)
+  }, 30_000)
 })
 
 describe('analyze', () => {

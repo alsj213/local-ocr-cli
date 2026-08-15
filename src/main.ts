@@ -161,7 +161,9 @@ export function doctor(): string {
   lines.push('')
   lines.push('Python')
   const py = findPython()
+  const pyDetail = probePython(py)
   lines.push(`  ${py} ${existsSync(py) ? '' : '(not found, will fall back to python3)'}`)
+  lines.push(`  ${pyDetail}`)
   lines.push('')
   lines.push('Engine')
   lines.push(`  ${ENGINE_PATH} ${existsSync(ENGINE_PATH) ? '[ok]' : '[missing]'}`)
@@ -188,6 +190,25 @@ export function doctor(): string {
   lines.push('Save dir')
   lines.push(`  ${process.env.LOCAL_OCR_SAVE_DIR ?? 'ocr_output/'} (set LOCAL_OCR_SAVE_DIR to change)`)
   return lines.join('\n')
+}
+
+/** Probe the resolved Python: version + paddleocr presence (the classic
+ *  "wrong python3 on PATH with an old paddleocr" failure). */
+function probePython(py: string): string {
+  if (!existsSync(py) && !py.startsWith('python')) {
+    return '(interpreter missing)'
+  }
+  try {
+    const out = execFileSync(py, ['-c',
+      'import sys,importlib,importlib.util;v=sys.version.split()[0];'
+      + 'm=importlib.import_module("paddleocr") if importlib.util.find_spec("paddleocr") else None;'
+      + 'print(v+" | "+(("paddleocr "+m.__version__) if m else "NO paddleocr"))',
+    ], { stdio: 'pipe', timeout: 15_000 }).toString().trim()
+    return out
+  } catch (err) {
+    const msg = (err as { stderr?: Buffer }).stderr?.toString() ?? ''
+    return `(probe failed: ${msg.slice(0, 60)})`
+  }
 }
 
 /** Probe whether the tesseract binary loads its libs (glibc mismatch check). */

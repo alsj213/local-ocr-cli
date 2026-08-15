@@ -41,3 +41,34 @@ On failure the JSON has `{ "error": "<message>" }` and the CLI exits non-zero
   when the answer must reference a specific region of the image.
 - `layout_boxes` give per-region confidence; a low score suggests the model
   itself was unsure — say so rather than guessing.
+
+## Tables & HTML in `text`
+
+For table-heavy images (receipts, trade records), PaddleOCR-VL emits the
+table as **inline HTML** inside the markdown:
+
+```
+<table border=1 ...><tr><td>...</td></tr></table>
+```
+
+That is expected, not a bug. When consuming programmatically, either keep
+the HTML (it preserves structure) or strip tags to plain rows:
+
+```
+<tr> → newline, <td> → space
+```
+
+This yields one line per table row — exactly the shape a CSV/row parser
+wants. Do not attempt to JSON-parse `text`; use the `blocks` array or the
+`--json` wrapper for structured access.
+
+## Batch usage
+
+- Warm up first: run one image before a large batch so model downloads
+  (`~/.paddlex/`, HF cache) complete and the llama-server is warm.
+- Reuse the same llama-server for the whole batch (one instance per port).
+- Strip proxy env vars before long runs (`env -u http_proxy ...`); the
+  engine does this itself now, but a wrapper script benefits too.
+- Write batch logs to a file (`> /tmp/batch.log 2>&1`) so an agent restart
+  does not lose progress; make the batch idempotent (skip already-done
+  outputs) so a re-run resumes instead of redoing everything.
