@@ -4,6 +4,7 @@
 
 <p align="center">
   <a href="./README.zh-CN.md">简体中文</a> ·
+  <a href="INSTALL.md">Install guide</a> ·
   <a href="docs/cli.md">CLI manual</a> ·
   <a href="docs/troubleshooting.md">Troubleshooting</a> ·
   <a href="skills/local-ocr/references/output-schema.md">Output contract</a> ·
@@ -40,14 +41,8 @@ Then restart dsh. The `ocr` tool appears on every request.
 
 ## Install (anywhere)
 
-The CLI needs Node >= 20 plus the Python engine:
-
-```bash
-npm install -g local-ocr-cli        # CLI
-# engine: see skills/local-ocr/references/configure.md
-#   - Python 3.10 venv with paddlepaddle-gpu>=3.2.1 + paddleocr>=3.7.0
-#   - tesseract (optional fallback)
-```
+See [INSTALL.md](INSTALL.md) — the Node CLI plus the Python engine (PaddleOCR-VL
+venv + llama.cpp GGUF server, tesseract optional).
 
 ## Usage
 

@@ -26,6 +26,8 @@
     "cordis.patch.yml",
     "engine",
     "README.md",
+    "README.zh-CN.md",
+    "INSTALL.md",
     "LICENSE"
   ],
   "keywords": [
