@@ -83,6 +83,7 @@ Both run locally. `local-ocr doctor` checks what is available.
 | :-- | :-- |
 | [CLI manual](docs/cli.md) | every flag, subcommand |
 | [Configuration](skills/local-ocr/references/configure.md) | setting up engines |
+| [npm OIDC setup](docs/npm-oidc-setup.md) | wiring automated npm publishing for any package |
 | [Troubleshooting](docs/troubleshooting.md) | a run failed |
 | [Output contract](skills/local-ocr/references/output-schema.md) | consuming the JSON |
 | [Security](docs/security.md) | what LocalOCR never does |
