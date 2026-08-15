@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.venv/
+ocr_output/
+*.log
+.DS_Store
