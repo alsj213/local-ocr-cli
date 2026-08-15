@@ -44,6 +44,18 @@ Then restart dsh. The `ocr` tool appears on every request.
 See [INSTALL.md](INSTALL.md) — the Node CLI plus the Python engine (PaddleOCR-VL
 venv + llama.cpp GGUF server, tesseract optional).
 
+## Releases (maintainers)
+
+Publishing to npm is fully automated via **Trusted Publishing (OIDC)** — no
+tokens, no 2FA prompts, automatic provenance. Pushing a `vX.Y.Z` tag triggers
+[`.github/workflows/release.yml`](.github/workflows/release.yml), which runs
+typecheck + test + build and then `npm publish --provenance`.
+
+```bash
+npm version patch        # bumps version and tags vX.Y.Z
+git push --tags          # GitHub Actions publishes to npm
+```
+
 ## Usage
 
 ```bash

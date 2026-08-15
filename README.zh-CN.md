@@ -34,6 +34,15 @@ dsh plugin --profile web add local-ocr-cli
 
 见 [INSTALL.md](INSTALL.md)——Node CLI 加 Python 引擎（PaddleOCR-VL venv + llama.cpp GGUF 服务，tesseract 可选）。
 
+## 发布（维护者）
+
+npm 发布通过 **Trusted Publishing（OIDC）** 完全自动化——无需令牌、无需 2FA 提示、自动生成 provenance。推送 `vX.Y.Z` tag 触发 [`.github/workflows/release.yml`](.github/workflows/release.yml)，执行 typecheck + test + build 后 `npm publish --provenance`。
+
+```bash
+npm version patch        # 升版本并打 vX.Y.Z tag
+git push --tags          # GitHub Actions 自动发布到 npm
+```
+
 ## 使用
 
 ```bash
