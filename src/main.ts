@@ -52,6 +52,10 @@ export interface AnalyzeResult {
   durationSeconds?: number
 }
 
+/** Max attempts for the VLM engine; llama.cpp's peg-native parser flakily
+ *  rejects long-document output (~1 in 3 runs), a retry usually succeeds. */
+const MAX_ATTEMPTS = 3
+
 function findPython(): string {
   // Explicit override first, then common venv/system names.
   if (process.env.LOCAL_OCR_PYTHON) return process.env.LOCAL_OCR_PYTHON
@@ -68,7 +72,7 @@ function findPython(): string {
   return 'python3'
 }
 
-export function analyze(options: AnalyzeOptions): Promise<AnalyzeResult> {
+function runEngineOnce(options: AnalyzeOptions): Promise<AnalyzeResult> {
   return new Promise((resolvePromise, rejectPromise) => {
     if (!existsSync(options.input)) {
       rejectPromise(new Error(`input not found: ${options.input}`))
@@ -129,6 +133,26 @@ export function analyze(options: AnalyzeOptions): Promise<AnalyzeResult> {
       resolvePromise(parsed)
     })
   })
+}
+
+/** Whether a result is a transient VLM failure worth retrying. */
+function isRetryable(result: AnalyzeResult): boolean {
+  if (!result.error) return false
+  // llama.cpp peg-native parse rejection / 500 from the VLM worker.
+  return /peg-native|Error code: 500|Exception from the 'vlm' worker/i.test(result.error)
+}
+
+export function analyze(options: AnalyzeOptions): Promise<AnalyzeResult> {
+  const run = async (attempt: number): Promise<AnalyzeResult> => {
+    const result = await runEngineOnce(options)
+    if (attempt < MAX_ATTEMPTS && isRetryable(result)) {
+      const wait = attempt * 1500 // backoff: 1.5s, 3s
+      await new Promise((r) => setTimeout(r, wait))
+      return run(attempt + 1)
+    }
+    return result
+  }
+  return run(1)
 }
 
 export function doctor(): string {
