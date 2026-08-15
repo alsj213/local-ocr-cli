@@ -4,7 +4,7 @@
   "description": "Fully-local OCR CLI for text-only LLMs: PaddleOCR-VL first-tier engine with tesseract fallback, dsh plugin included",
   "type": "module",
   "bin": {
-    "local-ocr": "./dist/main.js"
+    "local-ocr": "dist/main.js"
   },
   "scripts": {
     "dev": "vite build --watch",
