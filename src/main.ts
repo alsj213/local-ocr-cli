@@ -9,7 +9,7 @@
  * Subcommands: analyze (default), doctor, engine-path.
  */
 import { spawn } from 'node:child_process'
-import { existsSync, statSync } from 'node:fs'
+import { existsSync, readFileSync, statSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join, resolve } from 'node:path'
 import { Command } from 'commander'
@@ -17,6 +17,18 @@ import { Command } from 'commander'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 export const ENGINE_PATH = join(__dirname, '..', 'engine', 'engine.py')
 const ENGINE_TIMEOUT_MS = 300_000
+
+// Read the real version from package.json so `--version` follows releases
+// instead of a hardcoded string that drifts.
+const PKG_PATH = join(__dirname, '..', 'package.json')
+const CLI_VERSION = ((): string => {
+  try {
+    const pkg = JSON.parse(readFileSync(PKG_PATH, 'utf8')) as { version?: string }
+    return pkg.version ?? '0.0.0'
+  } catch {
+    return '0.0.0'
+  }
+})()
 
 export interface AnalyzeOptions {
   input: string
@@ -143,7 +155,7 @@ const program = new Command()
 program
   .name('local-ocr')
   .description('Fully-local OCR CLI: PaddleOCR-VL (first-tier) with tesseract fallback')
-  .version('0.1.0')
+  .version(CLI_VERSION)
 
 program
   .command('analyze')
