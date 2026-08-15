@@ -18,7 +18,7 @@ const ENGINE_TIMEOUT_MS = 300_000
 export const name = 'local-ocr'
 export const inject = ['tools']
 
-function findPython(): string {
+function findPython() {
   if (process.env.LOCAL_OCR_PYTHON) return process.env.LOCAL_OCR_PYTHON
   const candidates = [
     process.env.LOCAL_OCR_VENV ? join(process.env.LOCAL_OCR_VENV, 'bin', 'python') : '',

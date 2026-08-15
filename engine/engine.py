@@ -17,8 +17,11 @@ import sys
 from pathlib import Path
 
 # llama.cpp server is a local service — never route it through a proxy.
-os.environ.setdefault("NO_PROXY", "127.0.0.1,localhost")
-os.environ.setdefault("no_proxy", "127.0.0.1,localhost")
+# Force (not setdefault): a parent env may carry http_proxy + a no_proxy that
+# httpx does not apply to 127.0.0.1; overriding both guarantees the VLM call
+# stays on localhost.
+os.environ["NO_PROXY"] = "127.0.0.1,localhost"
+os.environ["no_proxy"] = "127.0.0.1,localhost"
 
 LLAMA_SERVER_URL = os.environ.get("OCR_LLAMA_URL", "http://127.0.0.1:8091/v1")
 DEFAULT_SAVE_DIR = os.environ.get("LOCAL_OCR_SAVE_DIR", "ocr_output")
