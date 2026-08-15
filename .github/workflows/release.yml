@@ -1,0 +1,57 @@
+name: Release
+
+# Publishes to npm via Trusted Publishing (OIDC) — no token, no 2FA prompt,
+# automatic provenance. Triggered by pushing a version tag (vX.Y.Z).
+#
+# One-time setup on npm (per package, ~1 minute, needs your 2FA):
+#   https://www.npmjs.com/settings/alsj0706/tokens
+#   -> "Granular Access Token" -> "Publish packages" scope
+#   -> "Trusted Publishers" section -> add:
+#        provider: GitHub
+#        owner: alsj213
+#        repository: local-ocr-cli
+#        workflow: release.yml
+#   (no bypass-2fa; OIDC replaces tokens entirely)
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.7.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Test
+        run: pnpm test
+
+      - name: Build
+        run: pnpm build
+
+      - name: Publish to npm (OIDC trusted publishing)
+        # No NPM_TOKEN needed: npm authenticates via the OIDC id-token minted
+        # by GitHub Actions (permissions.id-token: write above). Provenance
+        # is generated automatically.
+        run: npm publish --provenance --access public
