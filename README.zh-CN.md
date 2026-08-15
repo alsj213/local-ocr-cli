@@ -67,6 +67,7 @@ local-ocr doctor
 | demo | 展示内容 |
 | :-- | :-- |
 | [日本投降书](examples/japanese-instrument-of-surrender/) | 1945 年密集历史文档：印刷条款 + 手写签名 + 多国签署区；33 个结构化文本块、39 个版面框 |
+| [金刚经书法](examples/diamond-sutra-calligraphy/) | 宋代竖排繁体书法，正确按列读序识别 |
 
 ## 文档
 

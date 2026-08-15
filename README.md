@@ -82,6 +82,7 @@ Both run locally. `local-ocr doctor` checks what is available.
 | demo | what it shows |
 | :-- | :-- |
 | [Japanese Instrument of Surrender](examples/japanese-instrument-of-surrender/) | dense 1945 historical document: printed clauses + handwritten signatures + multi-nation signature block; 33 structured blocks, 39 layout boxes |
+| [Diamond Sutra Calligraphy](examples/diamond-sutra-calligraphy/) | vertical traditional-Chinese Song-dynasty calligraphy, read in correct column order |
 
 ## Docs
 
