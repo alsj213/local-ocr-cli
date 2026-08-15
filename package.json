@@ -28,7 +28,8 @@
     "README.md",
     "README.zh-CN.md",
     "INSTALL.md",
-    "LICENSE"
+    "LICENSE",
+    "examples"
   ],
   "keywords": [
     "cli",

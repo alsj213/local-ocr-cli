@@ -1,0 +1,1440 @@
+{
+  "image": "/home/liu/project/testdeepseek/surrender-doc.jpg",
+  "markdown": "## INSTRUMENT OF SURRENDER\n\n<div style=\"text-align: center;\"><img src=\"imgs/img_in_image_box_128_168_163_199.jpg\" alt=\"Image\" width=\"2%\" /></div>\n\n\ne, acting by command of and in behalf of the Emperor of Japan, the Japanese Government and the Japanese Imperial General Headquarters, hereby accept the provisions set forth in the declaration issued by the heads of the Governments of the United States, China and Great Britain on 26 July 1945, at Potsdam, and subsequently adhered to by the Union of Soviet Socialist Republics, which four powers are hereafter referred to as the Allied Powers.\n\nWe hereby proclaim the unconditional surrender to the Allied\n\nPowers of the Japanese Imperial General Headquarters and of all\n\nJapanese armed forces and all armed forces under Japanese control\n\nwherever situated.\n\nWe hereby command all Japanese forces wherever situated and the Japanese people to cease hostilities forthwith, to preserve and save from damage all ships, aircraft, and military and civil property and to comply with all requirements which may be imposed by the Supreme Commander for the Allied Powers or by agencies of the Japanese Government at his direction.\n\nWe hereby command the Japanese Imperial General Headquarters to issue at once orders to the Commanders of all Japanese forces and all forces under Japanese control wherever situated to surrender unconditionally themselves and all forces under their control.\n\nWe hereby command all civil, military and naval officials to obey and enforce all proclamations, orders and directives deemed by the Supreme Commander for the Allied Powers to be proper to effectuate this surrender and issued by him or under his authority and we direct all such officials to remain at their posts and to continue to perform their non-combatant duties unless specifically relieved by him or under his authority.\n\nWe hereby undertake for the Emperor, the Japanese Government and their successors to carry out the provisions of the Potsdam Declaration in good faith, and to issue whatever orders and take whatever action may be required by the Supreme Commander for the Allied Powers or by any other designated representative of the Allied Powers for the purpose of giving effect to that Declaration.\n\nWe hereby command the Japanese Imperial Government and the Japanese Imperial General Headquarters at once to liberate all allied prisoners of war and civilian internees now under Japanese control and to provide for their protection, care, maintenance and immediate transportation to places as directed.\n\nThe authority of the Emperor and the Japanese Government to rule the state shall be subject to the Supreme Commander for the Allied Powers who will take such steps as he deems proper to effectuate these terms of surrender.\n\nSigned at TOKYO BAY, JAPAN at 0904. I on the SECOND day of SEPTEMBER, 1945\n\n<div style=\"text-align: center;\"><img src=\"imgs/img_in_image_box_948_76_1131_128.jpg\" alt=\"Image\" width=\"13%\" /></div>\n\n\nBy Command and in behalf of the Emperor of Japan and the Japanese Government.\n\n<div style=\"text-align: center;\"><img src=\"imgs/img_in_image_box_944_189_1188_230.jpg\" alt=\"Image\" width=\"17%\" /></div>\n\n\nBy Command and in behalf of the Japanese Imperial General Headquarters.\n\nAccepted at TOKYO BAY. JAPAN at 0908 I\n\non the SECOND day of SEPTEMBER, 1945,\n\nfor the United States, Republic of China, United Kingdom and the\n\nUnion of Soviet Socialist Republics, and in the interests of the other\n\nUnited Nations at war with Japan.\n\nGongLuo Wue Arthur\n\nSupreme Commander for the Allied Powers.\n\n\n\n<div style=\"text-align: center;\"><img src=\"imgs/img_in_image_box_936_415_1203_451.jpg\" alt=\"Image\" width=\"19%\" /></div>\n\n\n<div style=\"text-align: center;\"><img src=\"imgs/img_in_image_box_816_490_1079_535.jpg\" alt=\"Image\" width=\"19%\" /></div>\n\n\nUnited States Representative\n\n徐永昌\n\nRepublic of China Representative\n\n\n\n<div style=\"text-align: center;\"><img src=\"imgs/img_in_image_box_818_609_1043_646.jpg\" alt=\"Image\" width=\"16%\" /></div>\n\n\nUnited Kingdom Representative\n\nUnion of Soviet Socialist Republics Representative\n\nCommonwealth of Australia Representative\n\n<div style=\"text-align: center;\"><img src=\"imgs/img_in_image_box_826_735_1046_781.jpg\" alt=\"Image\" width=\"15%\" /></div>\n\n\n<div style=\"text-align: center;\"><img src=\"imgs/img_in_image_box_806_800_1057_838.jpg\" alt=\"Image\" width=\"18%\" /></div>\n\n\nDominion of Canada Representative\n\n<div style=\"text-align: center;\"><img src=\"imgs/img_in_image_box_826_858_986_898.jpg\" alt=\"Image\" width=\"11%\" /></div>\n\n\nProvisional Government of the French\n\nRepubli Representative\n\n\n<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Muntria</td></tr></table>\n\nKingdom of the Netherlands Representative\n\nLeonard to Jail\n\nDominion of New Zealand Representative",
+  "blocks": [
+    {
+      "label": "paragraph_title",
+      "content": "INSTRUMENT OF SURRENDER",
+      "bbox": [
+        105,
+        52,
+        576,
+        96
+      ],
+      "order": 1,
+      "group_id": 0,
+      "polygon": [
+        [
+          104.56507110595703,
+          54.111000061035156
+        ],
+        [
+          574.9054565429688,
+          49.107398986816406
+        ],
+        [
+          575.3403930664062,
+          89.99639129638672
+        ],
+        [
+          105.0,
+          94.99999237060547
+        ]
+      ]
+    },
+    {
+      "label": "image",
+      "content": "",
+      "bbox": [
+        128,
+        168,
+        163,
+        199
+      ],
+      "order": null,
+      "group_id": 1,
+      "polygon": [
+        [
+          128.0,
+          168.0
+        ],
+        [
+          162.0,
+          168.0
+        ],
+        [
+          162.0,
+          198.0
+        ],
+        [
+          128.0,
+          198.0
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "e, acting by command of and in behalf of the Emperor of Japan, the Japanese Government and the Japanese Imperial General Headquarters, hereby accept the provisions set forth in the declaration issued by the heads of the Governments of the United States, China and Great Britain on 26 July 1945, at Potsdam, and subsequently adhered to by the Union of Soviet Socialist Republics, which four powers are hereafter referred to as the Allied Powers.",
+      "bbox": [
+        87,
+        189,
+        572,
+        298
+      ],
+      "order": 2,
+      "group_id": 2,
+      "polygon": [
+        [
+          87.0,
+          189.0
+        ],
+        [
+          572.0,
+          189.0
+        ],
+        [
+          572.0,
+          298.0
+        ],
+        [
+          87.0,
+          298.0
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "We hereby proclaim the unconditional surrender to the Allied\nPowers of the Japanese Imperial General Headquarters and of all\nJapanese armed forces and all armed forces under Japanese control\nwherever situated.",
+      "bbox": [
+        80,
+        305,
+        541,
+        370
+      ],
+      "order": 3,
+      "group_id": 3,
+      "polygon": [
+        [
+          80.0,
+          305.0
+        ],
+        [
+          541.0,
+          305.0
+        ],
+        [
+          541.0,
+          370.0
+        ],
+        [
+          80.0,
+          370.0
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "We hereby command all Japanese forces wherever situated and the Japanese people to cease hostilities forthwith, to preserve and save from damage all ships, aircraft, and military and civil property and to comply with all requirements which may be imposed by the Supreme Commander for the Allied Powers or by agencies of the Japanese Government at his direction.",
+      "bbox": [
+        70,
+        380,
+        573,
+        474
+      ],
+      "order": 4,
+      "group_id": 4,
+      "polygon": [
+        [
+          70.0,
+          380.0
+        ],
+        [
+          573.0,
+          380.0
+        ],
+        [
+          573.0,
+          474.0
+        ],
+        [
+          70.0,
+          474.0
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "We hereby command the Japanese Imperial General Headquarters to issue at once orders to the Commanders of all Japanese forces and all forces under Japanese control wherever situated to surrender unconditionally themselves and all forces under their control.",
+      "bbox": [
+        61,
+        486,
+        560,
+        551
+      ],
+      "order": 5,
+      "group_id": 5,
+      "polygon": [
+        [
+          61.0,
+          486.0
+        ],
+        [
+          560.0,
+          486.0
+        ],
+        [
+          560.0,
+          551.0
+        ],
+        [
+          61.0,
+          551.0
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "We hereby command all civil, military and naval officials to obey and enforce all proclamations, orders and directives deemed by the Supreme Commander for the Allied Powers to be proper to effectuate this surrender and issued by him or under his authority and we direct all such officials to remain at their posts and to continue to perform their non-combatant duties unless specifically relieved by him or under his authority.",
+      "bbox": [
+        52,
+        561,
+        534,
+        678
+      ],
+      "order": 6,
+      "group_id": 6,
+      "polygon": [
+        [
+          52.0,
+          561.0
+        ],
+        [
+          534.0,
+          561.0
+        ],
+        [
+          534.0,
+          678.0
+        ],
+        [
+          52.0,
+          678.0
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "We hereby undertake for the Emperor, the Japanese Government and their successors to carry out the provisions of the Potsdam Declaration in good faith, and to issue whatever orders and take whatever action may be required by the Supreme Commander for the Allied Powers or by any other designated representative of the Allied Powers for the purpose of giving effect to that Declaration.",
+      "bbox": [
+        44,
+        687,
+        541,
+        791
+      ],
+      "order": 7,
+      "group_id": 7,
+      "polygon": [
+        [
+          44.0,
+          687.0
+        ],
+        [
+          541.0,
+          687.0
+        ],
+        [
+          541.0,
+          791.0
+        ],
+        [
+          44.0,
+          791.0
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "We hereby command the Japanese Imperial Government and the Japanese Imperial General Headquarters at once to liberate all allied prisoners of war and civilian internees now under Japanese control and to provide for their protection, care, maintenance and immediate transportation to places as directed.",
+      "bbox": [
+        38,
+        796,
+        536,
+        888
+      ],
+      "order": 8,
+      "group_id": 8,
+      "polygon": [
+        [
+          38.00001525878906,
+          796.0
+        ],
+        [
+          535.8651123046875,
+          801.0086669921875
+        ],
+        [
+          535.0,
+          887.0
+        ],
+        [
+          37.13490295410156,
+          881.9913330078125
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "The authority of the Emperor and the Japanese Government to rule the state shall be subject to the Supreme Commander for the Allied Powers who will take such steps as he deems proper to effectuate these terms of surrender.",
+      "bbox": [
+        33,
+        890,
+        521,
+        968
+      ],
+      "order": 9,
+      "group_id": 9,
+      "polygon": [
+        [
+          32.99998474121094,
+          890.0000610351562
+        ],
+        [
+          520.8222045898438,
+          896.0851440429688
+        ],
+        [
+          519.925048828125,
+          968.0094604492188
+        ],
+        [
+          32.10282897949219,
+          961.9243774414062
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "Signed at TOKYO BAY, JAPAN at 0904. I on the SECOND day of SEPTEMBER, 1945",
+      "bbox": [
+        789,
+        21,
+        1263,
+        65
+      ],
+      "order": 10,
+      "group_id": 10,
+      "polygon": [
+        [
+          789.0,
+          21.0
+        ],
+        [
+          1263.0,
+          21.0
+        ],
+        [
+          1263.0,
+          65.0
+        ],
+        [
+          789.0,
+          65.0
+        ]
+      ]
+    },
+    {
+      "label": "image",
+      "content": "",
+      "bbox": [
+        948,
+        76,
+        1131,
+        128
+      ],
+      "order": null,
+      "group_id": 11,
+      "polygon": [
+        [
+          948.0,
+          76.0
+        ],
+        [
+          1131.0,
+          76.0
+        ],
+        [
+          1131.0,
+          128.0
+        ],
+        [
+          948.0,
+          128.0
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "By Command and in behalf of the Emperor of Japan and the Japanese Government.",
+      "bbox": [
+        935,
+        129,
+        1268,
+        167
+      ],
+      "order": 11,
+      "group_id": 12,
+      "polygon": [
+        [
+          935.0,
+          129.0
+        ],
+        [
+          1268.0,
+          129.0
+        ],
+        [
+          1268.0,
+          167.0
+        ],
+        [
+          935.0,
+          167.0
+        ]
+      ]
+    },
+    {
+      "label": "image",
+      "content": "",
+      "bbox": [
+        944,
+        189,
+        1188,
+        230
+      ],
+      "order": null,
+      "group_id": 13,
+      "polygon": [
+        [
+          944.1834106445312,
+          184.63795471191406
+        ],
+        [
+          1188.432861328125,
+          194.90052795410156
+        ],
+        [
+          1186.781494140625,
+          234.2008819580078
+        ],
+        [
+          942.5320434570312,
+          223.9383087158203
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "By Command and in behalf of the Japanese Imperial General Headquarters.",
+      "bbox": [
+        937,
+        230,
+        1219,
+        266
+      ],
+      "order": 12,
+      "group_id": 14,
+      "polygon": [
+        [
+          937.0,
+          230.0
+        ],
+        [
+          1219.0,
+          230.0
+        ],
+        [
+          1219.0,
+          266.0
+        ],
+        [
+          937.0,
+          266.0
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "Accepted at TOKYO BAY. JAPAN at 0908 I\non the SECOND day of SEPTEMBER, 1945,\nfor the United States, Republic of China, United Kingdom and the\nUnion of Soviet Socialist Republics, and in the interests of the other\nUnited Nations at war with Japan.\nGongLuo Wue Arthur\nSupreme Commander for the Allied Powers.",
+      "bbox": [
+        789,
+        320,
+        1283,
+        409
+      ],
+      "order": 13,
+      "group_id": 15,
+      "polygon": [
+        [
+          789.0,
+          320.0
+        ],
+        [
+          1283.0,
+          320.0
+        ],
+        [
+          1283.0,
+          409.0
+        ],
+        [
+          789.0,
+          409.0
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "",
+      "bbox": [
+        935,
+        416,
+        1288,
+        470
+      ],
+      "order": 14,
+      "group_id": 15,
+      "polygon": [
+        [
+          935.0,
+          416.0
+        ],
+        [
+          1288.0,
+          416.0
+        ],
+        [
+          1288.0,
+          470.0
+        ],
+        [
+          935.0,
+          470.0
+        ]
+      ]
+    },
+    {
+      "label": "image",
+      "content": "",
+      "bbox": [
+        936,
+        415,
+        1203,
+        451
+      ],
+      "order": null,
+      "group_id": 17,
+      "polygon": [
+        [
+          936.0,
+          415.0
+        ],
+        [
+          1203.0,
+          415.0
+        ],
+        [
+          1203.0,
+          451.0
+        ],
+        [
+          936.0,
+          451.0
+        ]
+      ]
+    },
+    {
+      "label": "image",
+      "content": "",
+      "bbox": [
+        816,
+        490,
+        1079,
+        535
+      ],
+      "order": null,
+      "group_id": 18,
+      "polygon": [
+        [
+          816.0,
+          490.0
+        ],
+        [
+          816.0,
+          529.0
+        ],
+        [
+          924.0,
+          534.0
+        ],
+        [
+          1078.0,
+          534.0
+        ],
+        [
+          1078.0,
+          507.0
+        ],
+        [
+          1072.0,
+          502.0
+        ],
+        [
+          998.0,
+          496.0
+        ],
+        [
+          917.0,
+          490.0
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "United States Representative\n徐永昌\nRepublic of China Representative",
+      "bbox": [
+        792,
+        529,
+        1081,
+        589
+      ],
+      "order": 15,
+      "group_id": 19,
+      "polygon": [
+        [
+          792.0,
+          529.0
+        ],
+        [
+          1081.0,
+          529.0
+        ],
+        [
+          1081.0,
+          589.0
+        ],
+        [
+          792.0,
+          589.0
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "",
+      "bbox": [
+        794,
+        587,
+        1025,
+        608
+      ],
+      "order": 16,
+      "group_id": 19,
+      "polygon": [
+        [
+          794.0,
+          586.9999389648438
+        ],
+        [
+          1024.0,
+          586.9999389648438
+        ],
+        [
+          1024.0,
+          606.9999389648438
+        ],
+        [
+          794.0,
+          606.9999389648438
+        ]
+      ]
+    },
+    {
+      "label": "image",
+      "content": "",
+      "bbox": [
+        818,
+        609,
+        1043,
+        646
+      ],
+      "order": null,
+      "group_id": 21,
+      "polygon": [
+        [
+          818.0,
+          609.0
+        ],
+        [
+          1043.0,
+          609.0
+        ],
+        [
+          1043.0,
+          646.0
+        ],
+        [
+          818.0,
+          646.0
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "United Kingdom Representative",
+      "bbox": [
+        791,
+        646,
+        1006,
+        667
+      ],
+      "order": 17,
+      "group_id": 22,
+      "polygon": [
+        [
+          791.0,
+          645.9999389648438
+        ],
+        [
+          1005.0,
+          645.9999389648438
+        ],
+        [
+          1005.0,
+          665.9999389648438
+        ],
+        [
+          791.0,
+          665.9999389648438
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "Union of Soviet Socialist Republics Representative",
+      "bbox": [
+        790,
+        662,
+        1175,
+        735
+      ],
+      "order": 18,
+      "group_id": 23,
+      "polygon": [
+        [
+          790.0,
+          662.0
+        ],
+        [
+          1175.0,
+          662.0
+        ],
+        [
+          1175.0,
+          735.0
+        ],
+        [
+          790.0,
+          735.0
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "Commonwealth of Australia Representative",
+      "bbox": [
+        791,
+        778,
+        1071,
+        803
+      ],
+      "order": 19,
+      "group_id": 24,
+      "polygon": [
+        [
+          791.0732421875,
+          775.3372802734375
+        ],
+        [
+          1070.521728515625,
+          783.014404296875
+        ],
+        [
+          1069.895263671875,
+          805.81591796875
+        ],
+        [
+          790.44677734375,
+          798.1387939453125
+        ]
+      ]
+    },
+    {
+      "label": "image",
+      "content": "",
+      "bbox": [
+        826,
+        735,
+        1046,
+        781
+      ],
+      "order": null,
+      "group_id": 25,
+      "polygon": [
+        [
+          826.0,
+          741.0
+        ],
+        [
+          826.0,
+          775.0
+        ],
+        [
+          936.0,
+          780.0
+        ],
+        [
+          1039.0,
+          780.0
+        ],
+        [
+          1045.0,
+          775.0
+        ],
+        [
+          1045.0,
+          751.0
+        ],
+        [
+          1039.0,
+          746.0
+        ],
+        [
+          997.0,
+          741.0
+        ],
+        [
+          915.0,
+          735.0
+        ],
+        [
+          888.0,
+          735.0
+        ],
+        [
+          853.0,
+          735.0
+        ],
+        [
+          833.0,
+          735.0
+        ]
+      ]
+    },
+    {
+      "label": "image",
+      "content": "",
+      "bbox": [
+        806,
+        800,
+        1057,
+        838
+      ],
+      "order": null,
+      "group_id": 26,
+      "polygon": [
+        [
+          806.0,
+          800.0
+        ],
+        [
+          1057.0,
+          800.0
+        ],
+        [
+          1057.0,
+          838.0
+        ],
+        [
+          806.0,
+          838.0
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "Dominion of Canada Representative",
+      "bbox": [
+        790,
+        837,
+        1031,
+        858
+      ],
+      "order": 20,
+      "group_id": 27,
+      "polygon": [
+        [
+          790.0,
+          837.0
+        ],
+        [
+          790.0,
+          852.0
+        ],
+        [
+          839.0,
+          857.0
+        ],
+        [
+          1030.0,
+          857.0
+        ],
+        [
+          1030.0,
+          837.0
+        ]
+      ]
+    },
+    {
+      "label": "image",
+      "content": "",
+      "bbox": [
+        826,
+        858,
+        986,
+        898
+      ],
+      "order": null,
+      "group_id": 28,
+      "polygon": [
+        [
+          826.0,
+          858.0
+        ],
+        [
+          986.0,
+          858.0
+        ],
+        [
+          986.0,
+          898.0
+        ],
+        [
+          826.0,
+          898.0
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "Provisional Government of the French\nRepubli Representative",
+      "bbox": [
+        788,
+        899,
+        1046,
+        935
+      ],
+      "order": 21,
+      "group_id": 29,
+      "polygon": [
+        [
+          788.0,
+          899.0
+        ],
+        [
+          1046.0,
+          899.0
+        ],
+        [
+          1046.0,
+          935.0
+        ],
+        [
+          788.0,
+          935.0
+        ]
+      ]
+    },
+    {
+      "label": "table",
+      "content": "<table><tr><td>Muntria</td></tr></table>",
+      "bbox": [
+        799,
+        935,
+        982,
+        979
+      ],
+      "order": null,
+      "group_id": 30,
+      "polygon": [
+        [
+          799.0,
+          935.0
+        ],
+        [
+          982.0,
+          935.0
+        ],
+        [
+          982.0,
+          979.0
+        ],
+        [
+          799.0,
+          979.0
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "Kingdom of the Netherlands Representative\nLeonard to Jail",
+      "bbox": [
+        787,
+        979,
+        1079,
+        1041
+      ],
+      "order": 22,
+      "group_id": 31,
+      "polygon": [
+        [
+          787.0,
+          979.0
+        ],
+        [
+          1079.0,
+          979.0
+        ],
+        [
+          1079.0,
+          1041.0
+        ],
+        [
+          787.0,
+          1041.0
+        ]
+      ]
+    },
+    {
+      "label": "text",
+      "content": "Dominion of New Zealand Representative",
+      "bbox": [
+        788,
+        1039,
+        1064,
+        1059
+      ],
+      "order": 23,
+      "group_id": 32,
+      "polygon": [
+        [
+          788.0,
+          1039.0
+        ],
+        [
+          788.0,
+          1058.0
+        ],
+        [
+          1063.0,
+          1058.0
+        ],
+        [
+          1063.0,
+          1039.0
+        ]
+      ]
+    }
+  ],
+  "layout_boxes": [
+    {
+      "label": "paragraph_title",
+      "score": 0.692,
+      "coordinate": [
+        105,
+        52,
+        576,
+        96
+      ]
+    },
+    {
+      "label": "image",
+      "score": 0.6595,
+      "coordinate": [
+        128,
+        168,
+        163,
+        199
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.9257,
+      "coordinate": [
+        87,
+        189,
+        572,
+        298
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.9148,
+      "coordinate": [
+        80,
+        305,
+        541,
+        370
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.9324,
+      "coordinate": [
+        70,
+        380,
+        573,
+        474
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.9203,
+      "coordinate": [
+        61,
+        486,
+        560,
+        551
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.9389,
+      "coordinate": [
+        52,
+        561,
+        534,
+        678
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.9242,
+      "coordinate": [
+        44,
+        687,
+        541,
+        791
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.9191,
+      "coordinate": [
+        38,
+        796,
+        536,
+        888
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.898,
+      "coordinate": [
+        33,
+        890,
+        521,
+        968
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.3798,
+      "coordinate": [
+        789,
+        21,
+        1263,
+        65
+      ]
+    },
+    {
+      "label": "image",
+      "score": 0.7885,
+      "coordinate": [
+        948,
+        76,
+        1131,
+        128
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.8314,
+      "coordinate": [
+        935,
+        129,
+        1268,
+        167
+      ]
+    },
+    {
+      "label": "image",
+      "score": 0.6008,
+      "coordinate": [
+        944,
+        189,
+        1188,
+        230
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.8358,
+      "coordinate": [
+        937,
+        230,
+        1219,
+        266
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.8908,
+      "coordinate": [
+        789,
+        320,
+        1283,
+        409
+      ]
+    },
+    {
+      "label": "image",
+      "score": 0.479,
+      "coordinate": [
+        936,
+        415,
+        1203,
+        451
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.3811,
+      "coordinate": [
+        935,
+        416,
+        1288,
+        470
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.4341,
+      "coordinate": [
+        939,
+        448,
+        1230,
+        469
+      ]
+    },
+    {
+      "label": "image",
+      "score": 0.3349,
+      "coordinate": [
+        816,
+        491,
+        979,
+        532
+      ]
+    },
+    {
+      "label": "image",
+      "score": 0.6679,
+      "coordinate": [
+        816,
+        490,
+        1079,
+        535
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.3775,
+      "coordinate": [
+        795,
+        531,
+        996,
+        551
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.4491,
+      "coordinate": [
+        792,
+        529,
+        1081,
+        589
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.3329,
+      "coordinate": [
+        808,
+        552,
+        913,
+        586
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.6836,
+      "coordinate": [
+        794,
+        587,
+        1025,
+        608
+      ]
+    },
+    {
+      "label": "image",
+      "score": 0.445,
+      "coordinate": [
+        818,
+        609,
+        1043,
+        646
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.6164,
+      "coordinate": [
+        791,
+        646,
+        1006,
+        667
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.3555,
+      "coordinate": [
+        790,
+        662,
+        1175,
+        735
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.703,
+      "coordinate": [
+        791,
+        778,
+        1071,
+        803
+      ]
+    },
+    {
+      "label": "image",
+      "score": 0.757,
+      "coordinate": [
+        826,
+        735,
+        1046,
+        781
+      ]
+    },
+    {
+      "label": "image",
+      "score": 0.5758,
+      "coordinate": [
+        806,
+        800,
+        1057,
+        838
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.7242,
+      "coordinate": [
+        790,
+        837,
+        1031,
+        858
+      ]
+    },
+    {
+      "label": "image",
+      "score": 0.7134,
+      "coordinate": [
+        826,
+        858,
+        986,
+        898
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.4132,
+      "coordinate": [
+        791,
+        899,
+        1048,
+        920
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.4049,
+      "coordinate": [
+        788,
+        899,
+        1046,
+        935
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.4302,
+      "coordinate": [
+        790,
+        918,
+        952,
+        936
+      ]
+    },
+    {
+      "label": "table",
+      "score": 0.5859,
+      "coordinate": [
+        799,
+        935,
+        982,
+        979
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.6095,
+      "coordinate": [
+        787,
+        979,
+        1079,
+        1041
+      ]
+    },
+    {
+      "label": "text",
+      "score": 0.4771,
+      "coordinate": [
+        788,
+        1039,
+        1064,
+        1059
+      ]
+    }
+  ]
+}

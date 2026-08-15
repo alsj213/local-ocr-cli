@@ -62,6 +62,12 @@ local-ocr doctor
 
 两者均本地运行。`local-ocr doctor` 检查可用性。
 
+## 示例
+
+| demo | 展示内容 |
+| :-- | :-- |
+| [日本投降书](examples/japanese-instrument-of-surrender/) | 1945 年密集历史文档：印刷条款 + 手写签名 + 多国签署区；33 个结构化文本块、39 个版面框 |
+
 ## 文档
 
 | 文档 | 何时阅读 |
