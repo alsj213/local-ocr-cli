@@ -13,6 +13,10 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       external: [...builtinModules, ...builtinModules.map((m) => `node:${m}`)],
+      output: {
+        // ESM CLI needs a shebang so npm's bin shim runs it with node.
+        banner: '#!/usr/bin/env node',
+      },
     },
   },
 })
