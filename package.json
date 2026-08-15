@@ -30,7 +30,9 @@
     "INSTALL.md",
     "LICENSE",
     "examples",
-    "scripts"
+    "scripts",
+    "skills/local-ocr-hermes/SKILL.md",
+    "skills/local-ocr-hermes/scripts"
   ],
   "keywords": [
     "cli",

@@ -30,6 +30,9 @@ tesseract when you want something lighter.
   Markdown and structured JSON.
 - **Drop-in for dsh.** One plugin row registers an `ocr` tool a text-only
   DeepSeek Harness model can call directly.
+- **Hermes-compatible.** Ships a `skills/local-ocr-hermes/` skill in the
+  agentskills.io format, so NousResearch's hermes-agent can drive the same
+  local engine.
 
 ## Install (DeepSeek Harness)
 
