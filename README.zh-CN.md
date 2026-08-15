@@ -76,6 +76,7 @@ local-ocr doctor
 | [CLI 手册](docs/cli.md) | 全部参数与子命令 |
 | [配置](skills/local-ocr/references/configure.md) | 搭建引擎 |
 | [排障](docs/troubleshooting.md) | 运行失败时 |
+| [能力边界](docs/capability-boundaries.md) | 引擎能读什么、不能读什么 |
 | [输出契约](skills/local-ocr/references/output-schema.md) | 消费 JSON |
 | [安全](docs/security.md) | LocalOCR 永远不会做什么 |
 

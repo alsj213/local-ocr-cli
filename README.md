@@ -91,6 +91,7 @@ Both run locally. `local-ocr doctor` checks what is available.
 | [CLI manual](docs/cli.md) | every flag, subcommand |
 | [Configuration](skills/local-ocr/references/configure.md) | setting up engines |
 | [Troubleshooting](docs/troubleshooting.md) | a run failed |
+| [Capability boundaries](docs/capability-boundaries.md) | what the engine can and cannot read |
 | [Output contract](skills/local-ocr/references/output-schema.md) | consuming the JSON |
 | [Security](docs/security.md) | what LocalOCR never does |
 

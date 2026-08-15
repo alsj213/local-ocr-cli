@@ -34,3 +34,10 @@ PaddleOCR-VL is a first-tier document parser; handwritten signatures and
 heavily-styled text can still be misread. `layout_boxes` confidence scores
 flag uncertain regions — do not silently "fix" text the model flagged as
 low-confidence.
+
+## Empty output (`text: ""`)
+
+The engine classified the whole image as a chart/image region rather than
+text (charts, dense UI screenshots). This is an engine boundary, not a bug —
+see [capability boundaries](capability-boundaries.md) for what LocalOCR can
+and cannot read.
