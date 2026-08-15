@@ -1,6 +1,6 @@
 {
   "name": "local-ocr-cli",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Fully-local OCR CLI for text-only LLMs: PaddleOCR-VL first-tier engine with tesseract fallback, dsh plugin included",
   "type": "module",
   "bin": {
